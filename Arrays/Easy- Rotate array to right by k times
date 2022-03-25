@@ -1,0 +1,49 @@
+class Solution {
+    public void rotate(int[] nums, int k) {
+        
+        // Solution 1
+        // copy the no of rotated elements to front
+        //copy the other part from next of no of rotated
+        
+        int length = nums.length;
+        if (length <=1){return;}
+         k = k % length;
+        int[] newArray = new int[length];
+        System.arraycopy(nums,0,newArray,0,length);
+        for(int i = length-k, j=0;i<length;i++){
+            nums[j++] = newArray[i];
+        }
+        for(int i = 0, j=k;i<length-k;i++){
+            nums[j++] = newArray[i];
+        }
+        
+        // Sol-2 -- timelimit exceeded for case 37 
+        // move one by one to right and copy last to 1st
+        
+        // int length = nums.length;
+        // if(k == 0 || length ==0){
+        //     return ;
+        // }
+        // while(k>=1){
+        //     int temp = nums[length-1];
+        //       for(int i =length-2;i>=0;i--){
+        //         nums[i+1] = nums[i];
+        // }
+        //     nums[0]=temp;
+        //     k--;
+        // }
+        
+         // sol-3 - Block swap algorithm 
+//             int length = nums.length;
+//             k = k%nums;
+//             gcdk = gcd(k,length);
+//         for(int i=0;i<gcdk;i++){
+//             int temp = arr[gcdk-1];
+//             while(true){
+               
+//             }
+//         }
+        
+     
+    }
+}
