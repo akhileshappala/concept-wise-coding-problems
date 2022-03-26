@@ -1,0 +1,30 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        
+//         Solution - 1 : using 2 for loops and checking each element - time limit issue
+//         int i , j ;
+//         int length = nums.length;
+//         for (i=0;i<length-1;i++){
+//             for (j=i+1;j<=length-1;j++){
+//                 if(nums[i]==nums[j]){
+//                     return true;
+//                 }
+               
+//             }
+//         }
+//         return false;
+        
+        // Sol-2 : Using hashset -- which is used to identify uniqueness of elements 
+        int length = nums.length;
+       HashSet<Integer> hash = new HashSet<>();
+        for (int i =0;i<length;i++){
+            if(hash.contains(nums[i])){
+                return true;
+            }
+            else{
+                hash.add(nums[i]);
+            }
+        }
+        return false;
+    }
+}
