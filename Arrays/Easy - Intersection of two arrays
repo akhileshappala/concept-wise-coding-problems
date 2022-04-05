@@ -12,23 +12,52 @@ class Solution {
         // for(int n=0;n<nums2.length;n++){
         //     s2.add(nums2[n]);
         // }
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
         for(int i=0;i<nums1.length;i++){
             for(int j =0;j<nums2.length;j++){
                 if(nums1[i]==nums2[j]){
                     inter[x] = nums1[i];
                     x++;
-                    break;
+                  break;
                 }
-                else { break;}
+                else { 
+                    continue;}
                 
                
             }
         }
-        for(int i =0;i<inter.length;i++){
-            if(inter[i]==0){
-                inter[i]=;
-            }
-        }
-        return inter;
+        // for(int i =0;i<inter.length;i++){
+        //     if(inter[i]==0){
+        //         inter[i]=;
+        //     }
+        // } 
+     inter = Arrays.copyOfRange(inter,0,x);
+        
+       return inter;
     }
 }
+
+// public class Solution {
+//     public int[] intersect(int[] nums1, int[] nums2) {
+//         if(nums1.length==0)
+//             return nums1;
+//         if(nums2.length==0)
+//             return nums2;
+//         Arrays.sort(nums1);
+//         Arrays.sort(nums2);
+//         int i=0,j=0,k=0;
+//         while(i<nums1.length && j<nums2.length){
+//             if(nums1[i]<nums2[j] )
+//                 i++;
+//             else if(nums2[j]<nums1[i])
+//                 j++;
+//             else if(nums1[i]==nums2[j]){
+//                 nums1[k++]=nums1[i];
+//                 i++;            
+//                 j++;
+//             }
+//         }
+//         return Arrays.copyOfRange(nums1, 0, k);
+//     }
+// }
