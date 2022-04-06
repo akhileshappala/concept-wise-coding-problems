@@ -1,0 +1,32 @@
+class Solution {
+    public int[] plusOne(int[] digits) {
+       //Sol-1
+       long onum=0;
+       int nlength=digits.length-1;
+        
+        for(int i=0;i<digits.length;i++){
+            System.out.println("onum unmber="+onum);
+             System.out.println("digits[i]="+digits[i]);
+             long pow =  (int)Math.pow(10,nlength);
+            pow = pow * (int)digits[i]  ;
+             System.out.println( "updated pow unmber="+pow);
+            onum = onum + pow;
+            // onum = onum + (int)(digits[i] * Math.pow(10,nlength)); 
+            System.out.println( "updated onum unmber="+onum);
+            System.out.println("power unmber="+nlength);
+            nlength--;
+        }
+        onum = onum + 1;
+       
+       
+        String temp = Long.toString(onum);
+        int[] unumbers = new int[temp.length()];
+        for (int i = 0; i < temp.length(); i++) {
+        unumbers[i] = temp.charAt(i) - '0';
+        }
+    return unumbers;
+        //end of sol-1
+        
+        
+    }
+}
