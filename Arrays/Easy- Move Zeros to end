@@ -1,0 +1,19 @@
+//Question : https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/567/
+//Description : Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+class Solution {
+    public void moveZeroes(int[] nums) {
+        int numOfZeros = 0;
+        for(int i =0; i<nums.length;i++){
+            if(nums[i] !=0){
+                nums[i-numOfZeros] = nums[i];
+            }
+            else{
+                numOfZeros++;
+            }
+        }
+        for(int i = nums.length-1;i>=nums.length-numOfZeros;i--){
+            nums[i]=0;
+        }
+    }
+}
