@@ -1,0 +1,24 @@
+problem : https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/546
+
+
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        //sol-1 --> brute force
+        
+        for(int i=0;i<nums.length-1;++i){
+            for(int j=i+1;j<nums.length;++j){
+                if(nums[i]+nums[j]==target){
+                   
+                    return new int[]{i, j};
+                }
+            }
+            
+        }
+        return null;
+    }
+    
+    
+    //sol-2 using map searching for j = target -i 
+    
+    
+}
