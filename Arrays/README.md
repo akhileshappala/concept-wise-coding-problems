@@ -1,5 +1,6 @@
-# concept-wise-coding-problems
+# concept-wise-coding-problems - Arrays
 
-Collection of coding problems according to difficulty level and topic wise.
+Easy : 
 
-Will try to push maximum problems with problem statements.
+https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/727/
+
