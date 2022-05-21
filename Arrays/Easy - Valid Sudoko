@@ -1,0 +1,30 @@
+https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/769
+
+Solution with clear explanation with hasset
+https://leetcode.com/explore/interview/card/top-interview-questions-easy/92/array/769/discuss/15472/Short+Simple-Java-using-Strings
+
+
+// we are using hashset in the below approach, where we only need to check whether given sudoko numbers is valid or not
+// by checking the rows , columns, 3*3 box without number repetation
+// in if conditions, if we are not able to add specific number in row / in column kind of string which means its already present
+//so we return false 
+
+class Solution {
+    public boolean isValidSudoku(char[][] board) {
+        Set seen = new HashSet();
+        for (int i=0;i<9;++i){
+            for(int j=0;j<9;++j){
+                char number = board[i][j];
+                if(number != '.'){
+                    if(!seen.add(number + " in row " + i) ||
+                      !seen.add(number + " in column " + j) || 
+                          !seen.add(number +" in block " + i/3 + "-" + j/3)){
+                        return false;
+                    }
+                    
+                }
+            }
+        }
+        return true;
+    }
+}
