@@ -19,6 +19,25 @@ class Solution {
     
     
     //sol-2 using map searching for j = target -i 
+    1.  push elements to map
+    2.  check for target-nums[i]
+    3. if found push to result and return else return empty result
     
+    class Solution {
+    public int[] twoSum(int[] nums, int target) {
+       int[] result = new int[2];
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        for(int i=0;i< nums.length;i++){
+            map.put(nums[i],i);
+            if(map.containsKey(target - nums[i])){
+                result[1] = i;
+                result[0]= map.get(target - nums[i]);
+                return result;
+            }
+           
+        }
+        return result;
+    }
+}
     
 }
