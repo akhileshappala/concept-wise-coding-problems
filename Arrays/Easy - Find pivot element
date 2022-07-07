@@ -1,0 +1,30 @@
+
+https://leetcode.com/problems/find-pivot-index/
+
+1st we are coming with new arrays 1 from left side sum 
+array 2 is from right side sum
+if one element in the right and left array sum is same then return that index
+
+
+class Solution {
+    public int pivotIndex(int[] nums) {
+       int length = nums.length;
+        int[] left = new int[length];
+        int[] right = new int[length];
+        left[0] = nums[0];
+        right[length-1] = nums[length-1];
+        
+        for(int i =1 ;i<length;i++){
+            left[i] = nums[i]+left[i-1];
+            right[length-1-i] = nums[length-1-i] + right[length-i];
+        }
+        
+        for(int i =0;i<length;i++){
+            if(left[i]==right[i]){
+                return i;
+            }
+        }
+        return -1 ;
+        
+    }
+}
