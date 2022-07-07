@@ -4,12 +4,19 @@ class Solution {
         // Solution-1: Using XOR
         //explanation - A number xor with 0 is itself, Number Xor with Itself is 0 
         
-            int length = nums.length;
+        int length = nums.length;
         int result=0;
         for(int i=0;i<length;i++){
             result = result ^ nums[i];
         }
         return result;
+        
+        Sol-2 using XOR without extra space:
+        
+        for(int i =1;i<nums.length;i++) {
+           nums[0]= nums[0]^nums[i];
+       }
+        return nums[0];
         
         
 //         int length = nums.length;
