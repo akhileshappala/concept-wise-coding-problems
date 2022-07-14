@@ -1,0 +1,32 @@
+LInk : https://leetcode.com/problems/squares-of-a-sorted-array/
+
+Solution : 
+2 pointer solution :
+one from start and other from end 
+As the array is already sorted  1st element is small ,last one is large
+directly we can square and return but negative numbers are present
+find the absolute value -- of 1st and last 
+compare which is greater -- and assgin to last value of result array
+the pointer will move like: one from initial and other from end to check the negative values and square and assgin back
+
+
+class Solution {
+    public int[] sortedSquares(int[] nums) {
+        int i, j ;
+        int n = nums.length;
+        i = 0;
+        j = n-1;
+        int[] result = new int[n];
+        for(int k =n-1;k>=0;k--){
+            if(Math.abs(nums[i]) > Math.abs(nums[j])){
+                result[k] = nums[i]*nums[i];
+                i++;
+            }
+            else{
+                result[k] = nums[j]*nums[j];
+                j--;
+            }
+        }
+        return result;
+    }
+}
