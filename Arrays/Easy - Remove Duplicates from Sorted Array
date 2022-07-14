@@ -1,5 +1,11 @@
  #Remove Duplicates from Sorted Array
+ Link : https://leetcode.com/problems/remove-duplicates-from-sorted-array/
  
+ solution: 
+ starts from i=0 j=0 and checks the values 
+ if equal increament
+ if not increase j and assign the value of i to j -->  as i is far ahead and finding the next new element of the array 
+ j is still at the 1st value so increase it to next and assign the value of the j.
  
 class Solution {
     public int removeDuplicates(int[] nums) {
