@@ -1,0 +1,19 @@
+Link : https://leetcode.com/problems/number-of-1-bits/
+
+Approach : 
+n &1 = will be left most bit of the n  AND operation with 1 ---> which gives 1 if both are same 
+so n&1 -- will become 1 and add to total if the bit is 1
+n>>>1 -- will move one bit to the right.
+
+public class Solution {
+    // you need to treat n as an unsigned value
+    public int hammingWeight(int n) {
+     int total = 0;
+        while(n!=0){
+                total = total + (n&1);
+                n=n>>>1;
+            
+        }
+        return total;
+    }
+}
