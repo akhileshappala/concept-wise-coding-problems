@@ -1,0 +1,28 @@
+Link : https://leetcode.com/problems/maximum-subarray/ 
+
+appraoch : current_sum gives the sum of elements till now, if tat is more then assgin it to max sum.
+this is only for max sum with out telling the sub array
+
+
+class Solution {
+    public int maxSubArray(int[] nums) {
+       
+        int current_sum = 0;
+        int max_sum = Integer.MIN_VALUE;
+        for(int i = 0 ; i<nums.length; i++)
+            {
+                current_sum += nums[i];
+
+                if(current_sum > max_sum)
+                    {
+                        max_sum = current_sum;
+                    }
+                if(current_sum<0)
+                    {
+                        current_sum = 0;
+                    }
+            }
+        return max_sum;
+    }
+}
+
