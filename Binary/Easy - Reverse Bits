@@ -1,0 +1,25 @@
+Link : https://leetcode.com/problems/reverse-bits/
+
+approach : 
+1. take result =0 , pos == as integer length = 32 
+2. result <<=1 will move to the left by 1 bit and add at the end -- 1100 --> 1000
+3. n&1 =1 if last bit of n is 1 else 0 -- if 1 add to the result
+4. n>>=1 --> removes the rightmost one after checking above step -- 1101 --> 0110
+
+
+public class Solution {
+    // you need treat n as an unsigned value
+    public int reverseBits(int n) {
+        
+        int result =0;
+        int pos = Integer.SIZE-1; // highest integer length 
+       for (int i=0;i<=pos;i++){
+               result<<=1;
+               result = result + (n&1);
+               n>>=1; // n = n/2;
+               
+           }
+         return result;
+       }
+       
+    }
