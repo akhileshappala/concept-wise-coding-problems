@@ -1,0 +1,28 @@
+Link : https://leetcode.com/problems/maximum-product-subarray/submissions/
+
+Approach  :
+ traverse through the array and check the max and min value because array 
+ can have the negative numbers which - * - = + so we need min also.
+ which will be +ve if multiplied with the -ve
+ 
+
+
+class Solution {
+    public int maxProduct(int[] nums) {
+        if(nums.length ==0 || nums == null){
+            return 0;
+            
+        }
+        int max = nums[0], min = nums[0], result =nums[0];
+        
+        for(int i =1;i<nums.length;i++){
+            int temp = max;
+            max = Math.max(Math.max(nums[i]* max, nums[i]*min), nums[i]);
+            min = Math.min(Math.min(nums[i]* temp, nums[i]*min), nums[i]);
+            if(max>result){
+                result = max;
+            }
+        }
+        return result;
+    }
+}
