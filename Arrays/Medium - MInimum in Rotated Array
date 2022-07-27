@@ -1,0 +1,28 @@
+Link : https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/submissions/ 
+
+apparoch : the below is the most significant binary search to work on logn 
+another method is to 
+mid = (left + right) /2
+and incre right = mid-1 like that 
+below is  little diff
+
+
+class Solution {
+    public int findMin(int[] nums) {
+       if(nums == null || nums.length ==0){
+           return 0;
+       }
+        int left = 0, right = nums.length-1;
+        
+        while(left<right){
+            int mid = left + (right-left)/2;
+            if(nums[mid] > nums[right]){
+                left = mid +1;
+            }
+            else{ 
+            right = mid;
+            }
+        }
+        return nums[left];
+    }
+}
