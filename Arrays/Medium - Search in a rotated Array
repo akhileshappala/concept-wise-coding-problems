@@ -1,0 +1,38 @@
+link : https://leetcode.com/problems/search-in-rotated-sorted-array/
+
+Approach : case of binary search 
+but here it is not sorted completed 
+left and right part is sorted making any pivot 
+
+1st level check - should happen on mid and left / right - to know how the array is sorted 
+then check with target whether it is in left bound or right bound
+
+
+
+
+public class Solution {
+    public int search(int[] nums, int target) {
+        int start = 0;
+        int end = nums.length - 1;
+        while (start <= end){
+            int mid = (start + end) / 2;
+            if (nums[mid] == target)
+                return mid;
+        
+            if (nums[start] <= nums[mid]){
+                 if (target < nums[mid] && target >= nums[start]) 
+                    end = mid - 1;
+                 else
+                    start = mid + 1;
+            } 
+        
+            if (nums[mid] <= nums[end]){
+                if (target > nums[mid] && target <= nums[end])
+                    start = mid + 1;
+                 else
+                    end = mid - 1;
+            }
+        }
+        return -1;
+    }
+}
