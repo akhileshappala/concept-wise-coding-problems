@@ -1,0 +1,26 @@
+Link : https://leetcode.com/problems/reverse-linked-list/
+
+appraoch : 
+consider each node as head
+ go to 1st one and make the next node next as head(which is previous)
+ and call the next node as head 
+ loop till the head is null -- which is last element
+ 
+    
+    // recursion
+    class Solution {
+    public ListNode reverseList(ListNode head) {
+        //base 
+        if(head == null || head.next ==null){
+            return head;
+        }
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        
+        return newHead;
+    }
+    
+    // iteration 
+    
+}
