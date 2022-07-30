@@ -1,0 +1,38 @@
+link : https://leetcode.com/problems/linked-list-cycle/
+
+approach : 
+
+this is with the fast pointer and slow pointer 
+fast will move 2 steps 
+slow will move 1 step
+if they meet at any point will return 
+
+
+/**
+ * Definition for singly-linked list.
+ * class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        
+        ListNode slow = head, fast = head;
+        
+        while(slow != null && fast != null && fast.next!= null){
+            slow = slow.next;
+            fast = fast.next.next;
+            
+            if(slow == fast){
+                return true;
+            }
+            
+        }
+        return false;
+    }
+}
