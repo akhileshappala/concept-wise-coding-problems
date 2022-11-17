@@ -1,6 +1,6 @@
 class Solution {
     public boolean containsDuplicate(int[] nums) {
-       // --> Works for sorted array
+       // --> linear search
         // int i = 0;
         // for(int j=1;j<nums.length;j++){
         //     if(nums[i] == nums[j]){
@@ -24,16 +24,25 @@ class Solution {
         // }
         // return false;
         
-        //sol-3  : using xor operator
-        int result = 0;
-        for(int i = 0;i<nums.length;i++){
-           result = result^nums[i];
-            if(result == 0){
+         //sorting 
+        Arrays.sort(nums);
+        for(int i =0;i<nums.length-1;i++){
+            if(nums[i] == nums[i+1]){
                 return true;
-                
             }
+            
         }
         return false;
+        
+//         // sol-3  : using xor operator
+//         int result = 1;
+//         for(int i = 0;i< nums.length;i++){
+//            result = result^nums[i]; 
+//        if(result == 0) {return true;}
+
+//         }
+    
+//         return false;
     }
     
 }
