@@ -16,11 +16,11 @@ class Solution {
             if(sum == target){
                 return new int[]{low+1 , high +1};
             }
-            else if(sum <target){
-                ++low ;
+            else if(sum < target){
+                low++ ;
             }
             else{
-                --high;
+                high--;
             }
         }
         return new int[]{-1,-1};
