@@ -1,0 +1,32 @@
+class Solution {
+    public int maxProfit(int[] prices) {
+
+        // Using brute force -- time complexity issue
+
+        // int maxP = 0;
+        // for(int i =0;i<prices.length-1;i++){
+        //     for(int j=i+1;j<prices.length;j++){
+        //         int currentProfit = prices[j]-prices[i];
+        //         if(currentProfit>maxP){
+        //             maxP = currentProfit;
+        //         }
+        //     }
+        // }
+        // return maxP;
+
+        // using the optimal one 
+        int maxPro = 0 ;
+        int minprice = Integer.MAX_VALUE;
+
+        for(int i =0;i<prices.length;i++){
+            if(prices[i]<minprice){
+                minprice = prices[i];
+            }
+          int  currentProfit = prices[i] - minprice;
+            if(maxPro < currentProfit){
+                maxPro = currentProfit;
+            }
+        }
+        return maxPro;
+    }
+}
