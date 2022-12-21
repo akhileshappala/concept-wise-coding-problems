@@ -10,14 +10,21 @@
  */
 class Solution {
     public ListNode reverseList(ListNode head) {
-        //base 
-        if(head == null || head.next ==null){
+        //base case when we dont have any node or one node
+        if(head == null || head.next == null){
             return head;
         }
-        ListNode newHead = reverseList(head.next);
-        head.next.next = head;
+         
+        //secondElement(having list except 1st element)
+        ListNode secondElement = head.next;
+        //now separate the list into 2 parts, by doing 1st element.next = null, now 1st ele has one element and null in address, 
+        // 2nd element has everything from the list other than 1st 
         head.next = null;
-        
-        return newHead;
+        //call reverseList on the second element
+        ListNode reversedList = reverseList(secondElement);
+        //merging the list with 1st  element
+        secondElement.next = head;
+        //return the reversed sublist
+        return reversedList;
     }
 }
