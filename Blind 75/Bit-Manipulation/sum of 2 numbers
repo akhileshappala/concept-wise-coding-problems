@@ -1,0 +1,18 @@
+link : https://leetcode.com/problems/sum-of-two-integers/description/
+
+
+class Solution {
+    public int getSum(int a, int b) {
+    // for doing sum of 2 numbers using bit manipulation 
+    // 1. xor of 2 numbers as if its same i.e 1 ^ 1 = 0 --> carry will be left manged in next step
+    // 2. Find carry by using &  move it to left using left shift.
+    // 3.now apply xor again to the step 1 result and step 2 result
+        while(b!= 0){
+            int temp = a ;
+             a = a^b;
+            b = (temp&b)<<1;
+
+        }
+        return a;
+    }
+}
