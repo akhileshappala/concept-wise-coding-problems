@@ -1,38 +1,44 @@
+link: https://leetcode.com/problems/spiral-matrix/description/
+
 class Solution {
-
     public List<Integer> spiralOrder(int[][] matrix) {
-        List<Integer> list = new ArrayList<>();
-        int rb = 0;
-        int re = matrix.length - 1;
-        int cb = 0;
-        int ce = matrix[0].length - 1;
-
-        while (rb <= re && cb <= ce) {
-            for (int j = cb; j <= ce; j++) {
-                list.add(matrix[rb][j]);
+        List<Integer> res = new ArrayList<>();
+        int top = 0;
+        int bottom = matrix.length - 1;
+        int left = 0;
+        int right = matrix[0].length-1;
+        // System.out.println(matrix.length);
+        // System.out.println(matrix[0].length);
+        
+        //printing the 1st row 
+        while(left <= right && top <= bottom) {
+            for (int i =left;i<=right;i++){
+                res.add(matrix[top][i]);
             }
-            rb++;
-
-            for (int i = rb; i <= re; i++) {
-                list.add(matrix[i][ce]);
+           //after printing the 1st row - increasing top so we can start the last column and next iteration we have a check
+            top++;
+            //printing the last column 
+            for (int i=top;i<=bottom;i++){
+                res.add(matrix[i][right]);
             }
-            ce--;
-
-            if (rb <= re) {
-                for (int j = ce; j >= cb; j--) {
-                    list.add(matrix[re][j]);
-                }
+            right--;
+          //decreasing the right as we are done with last row and for the next time check
+          //A additional check for the last round, and for the inner spiral 
+            if (top <= bottom && left <= right) {
+                // prining the bottom from right to left 
+            for (int i=right;i>=left;i--){
+                res.add(matrix[bottom][i]);
             }
-            re--;
-
-            if (cb <= ce) {
-                for (int i = re; i >= rb; i--) {
-                    list.add(matrix[i][cb]);
-                }
+             
+            bottom--;
+           
+             for (int i=bottom;i>=top;i--){
+                res.add(matrix[i][left]);
             }
-            cb++;
+            }
+            left++;
+
         }
-
-        return list;
+        return res;
     }
 }
